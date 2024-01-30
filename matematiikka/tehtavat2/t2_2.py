@@ -11,4 +11,3 @@ v = np.array([4, -7])
 uu = np.array([1, 1, 1])
 
 vv = np.array([3, -3, 2])
-
