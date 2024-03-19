@@ -10,7 +10,7 @@ SCREENW = 128
 SCREENH = 64
 
 
-class movingText:
+class textBlock:
     def __init__(self, text, oled, x, y):
         self.x = x
         self.y = y
@@ -38,7 +38,7 @@ class movingText:
         return moved
 
 
-class Ufo(movingText):
+class Ufo(textBlock):
     def __init__(self, btnL, btnR, btnU, btnD, oled, x, y):
         super().__init__("<=>", oled, x, y)
         self.btnL = btnL

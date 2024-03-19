@@ -2,6 +2,11 @@ from machine import Pin, I2C
 import ssd1306
 
 
+# Screen dimensions
+SCREENW = 128
+SCREENH = 64
+
+
 class LED:
     def __init__(self, pin):
         self.pin = pin
