@@ -2,6 +2,7 @@ from machine import Pin, I2C
 import ssd1306
 from time import sleep_ms
 
+
 # Initial position of UFO
 INITX = 52
 INITY = 56
