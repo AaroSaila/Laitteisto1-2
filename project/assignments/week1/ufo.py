@@ -6,6 +6,7 @@ from time import sleep_ms
 # Initial position of UFO
 INITX = 52
 INITY = 56
+
 # Screen dimensions
 SCREENW = 128
 SCREENH = 64
