@@ -26,6 +26,22 @@ def checkCoord(coords):
     return coords
         
 
+def updatePixel(oled, coords, btnD, btnU, btnR):
+    if btnR.value() == 0:
+        oled.fill(0)
+        coords = {"x": PIXELX, "y": PIXELY}
+    if btnU.value() == 0:
+        coords["y"] -= 1
+    if btnD.value() == 0:
+        coords["y"] += 1
+    coords = checkCoord(pixelPos)
+    oled.pixel(coords["x"], coords["y"], 1)
+    oled.show()
+    coords["x"] += 1
+    
+    return coords
+
+
 btnD = Pin(9, Pin.IN, Pin.PULL_UP)
 btnU = Pin(7, Pin.IN, Pin.PULL_UP)
 btnR = Pin(8, Pin.IN, Pin.PULL_UP)
@@ -38,16 +54,6 @@ oled.fill(0)
 pixelPos = {"x": PIXELX, "y": PIXELY}
 
 while True:
-    if btnR.value() == 0:
-        oled.fill(0)
-        pixelPos = {"x": PIXELX, "y": PIXELY}
-    if btnU.value() == 0:
-        pixelPos["y"] -= 1
-    if btnD.value() == 0:
-        pixelPos["y"] += 1
-    pixelPos = checkCoord(pixelPos)
-    oled.pixel(pixelPos["x"], pixelPos["y"], 1)
-    oled.show()
-    pixelPos["x"] += 1
+    pixelPos = updatePixel(oled, pixelPos, btnD, btnU, btnR)
     sleep_ms(10)
     
